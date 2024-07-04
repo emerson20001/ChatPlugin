@@ -25,10 +25,12 @@ class ChatPluginAdmin {
                 </select>
                 <button type="submit">Selecionar Sala</button>
             </form>
-            <div id="listmessage" style="border: 1px solid #ccc; height: 200px; overflow-y: auto; margin-top: 10px;"></div>
-            <div id="chat-reply" style="display: none;">
-                <textarea id="reply-message" placeholder="Digite sua mensagem"></textarea>
-                <button id="send-reply">Enviar</button>
+            <div id="chat-container" style="width: 100%; height: 100%; display: flex; flex-direction: column;">
+                <div id="listmessage" style="flex: 1; border: 1px solid #ccc; overflow-y: auto; margin-top: 10px;"></div>
+                <div id="chat-reply" style="display: none; flex-direction: column; margin-top: 10px;">
+                    <textarea id="reply-message" placeholder="Digite sua mensagem" style="width: 100%; height: 50px;"></textarea>
+                    <button id="send-reply" style="background: #0073aa; color: #fff; border: none; padding: 10px 20px; border-radius: 5px;">Enviar</button>
+                </div>
             </div>
         </div>
         <script>
@@ -89,6 +91,7 @@ class ChatPluginAdmin {
 
                 function appendMessage(sender, message) {
                     const messageElement = document.createElement('div');
+                    messageElement.classList.add('chat-message');
                     messageElement.innerHTML = `<strong>${sender}</strong>: ${message}`;
                     chatMessages.appendChild(messageElement);
                     chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -108,7 +111,7 @@ class ChatPluginAdmin {
                             data.data.forEach(msg => {
                                 appendMessage(msg.sender, msg.message);
                             });
-                            chatReply.style.display = 'block';
+                            chatReply.style.display = 'flex';
                         } else {
                             console.error('Sala não encontrada.');
                             alert('Sala não encontrada.');

@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function appendMessage(sender, message) {
         const messageElement = document.createElement('div');
+        messageElement.classList.add('chat-message');
         messageElement.innerHTML = `<strong>${sender}</strong>: ${message}`;
         chatMessages.appendChild(messageElement);
         chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom

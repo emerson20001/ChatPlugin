@@ -14,20 +14,19 @@ class ChatPluginWidget {
 
     public function displayWidget() {
         ?>
-        <div id="chat-widget" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
-            <button id="chat-toggle" style="background: #0073aa; color: #fff; border: none; padding: 10px 20px; border-radius: 5px;">Chat</button>
-            <div id="chat-box" style="display: none; background: #fff; border: 1px solid #ccc; padding: 10px; width: 300px; height: 400px;">
-                <div id="listmessage" style="border: 1px solid #ccc; height: 200px; overflow-y: auto; margin-bottom: 10px;"></div>
-                <form id="chat-form">
+        <div id="chat-widget" class="chat-widget">
+            <button id="chat-toggle" class="chat-toggle">Chat</button>
+            <div id="chat-box" class="chat-box">
+                <div id="listmessage" class="chat-messages"></div>
+                <form id="chat-form" class="chat-form">
                     <input type="hidden" id="chat-room" name="room">
                     <div id="user-info">
-                        <input type="text" id="chat-phone" name="phone" placeholder="Telefone" required style="width: 100%; margin-bottom: 10px;">
-                        <input type="email" id="chat-email" name="email" placeholder="Email" required style="width: 100%; margin-bottom: 10px;">
+                        <input type="text" id="chat-phone" name="phone" placeholder="Telefone" required class="chat-input">
+                        <input type="email" id="chat-email" name="email" placeholder="Email" required class="chat-input">
                     </div>
-                    <textarea id="chat-message" name="message" placeholder="Sua mensagem" required style="width: 100%; height: 50px; margin-bottom: 10px;"></textarea>
-                    <button type="submit" style="background: #0073aa; color: #fff; border: none; padding: 10px 20px; border-radius: 5px;">Enviar</button>
+                    <textarea id="chat-message" name="message" placeholder="Sua mensagem" required class="chat-input"></textarea>
+                    <button type="submit" class="chat-submit">Enviar</button>
                 </form>
-                <iframe id="hidden-iframe" style="display:none;"></iframe>
             </div>
         </div>
         <?php
